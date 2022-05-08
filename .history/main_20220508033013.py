@@ -15,8 +15,7 @@ def main():
     csv_columns = ['Attempts', 'Words']
 
     with open('results.csv', 'w') as f:
-        for data in results:
-            
+        writer = csv.
 
     # c = collections.Counter(results)
     # print(c)

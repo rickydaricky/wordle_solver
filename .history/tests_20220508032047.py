@@ -1,7 +1,7 @@
 from game import Game
 from words import WordsController
 
-MAX_ATTEMPTS = 10
+MAX_ATTEMPTS = 10000
 
 
 class Tests():

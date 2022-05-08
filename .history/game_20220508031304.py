@@ -26,26 +26,22 @@ class Game():
         
 
         for i in range(len(attempted_word)):
+
             if attempted_word[i] in self.correct_word:
-                if self.correct_word[i] == attempted_word[i]:
-                    now_known.append((attempted_word[i], i))
-                else:
-                    new_unknown.append((attempted_word[i], i))
-            else:
+
+
+            inside = False
+            for j in range(len(self.correct_word)):
+                if attempted_word[i] == self.correct_word[j]:
+                    inside = True
+                    print(attempted_word[i], self.correct_word[j])
+                    if i == j:
+                        now_known.append((attempted_word[i], i))
+                        break
+                    else:
+                        new_unknown.append((attempted_word[i], i))
+                        break
+            if not inside:
                 new_wrong.append(attempted_word[i])
-
-
-            # inside = False
-            # for j in range(len(self.correct_word)):
-            #     if attempted_word[i] == self.correct_word[j]:
-            #         inside = True
-            #         if i == j:
-            #             now_known.append((attempted_word[i], i))
-            #             break
-            #         else:
-            #             new_unknown.append((attempted_word[i], i))
-            #             break
-            # if not inside:
-            #     new_wrong.append(attempted_word[i])
 
         return new_wrong, new_unknown, now_known

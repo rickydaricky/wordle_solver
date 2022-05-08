@@ -1,22 +1,22 @@
 from words import WordsController
 from tests import Tests
 import collections
-import csv
 
 
 def main():
     # Tests.test_word('zesty')
 
-    results = collections.defaultdict(list)
+    results = {}
     wc = WordsController(5)
     for word in wc.word_options:
-        results[Tests.test_word(word)].append(word)
+        results.append(Tests.test_word(word))
 
-    csv_columns = ['Attempts', 'Words']
+    
+    
+
 
     with open('results.csv', 'w') as f:
-        for data in results:
-            
+        f.write()
 
     # c = collections.Counter(results)
     # print(c)

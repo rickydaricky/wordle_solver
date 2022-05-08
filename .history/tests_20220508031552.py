@@ -1,7 +1,7 @@
 from game import Game
 from words import WordsController
 
-MAX_ATTEMPTS = 10
+MAX_ATTEMPTS = 6
 
 
 class Tests():
@@ -33,10 +33,11 @@ class Tests():
             if answer != False:
                 print(f'complete in {i + 1} turns!')
                 found = True
-                return i + 1
+                break
 
             chosen = wc.choose_word()
     
-        print(f'failure to find the word within {MAX_ATTEMPTS} steps')
-        return False
+        if not found:
+            print(f'failure to find the word within {MAX_ATTEMPTS} steps')
+            return False
 

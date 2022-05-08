@@ -1,7 +1,7 @@
 from game import Game
 from words import WordsController
 
-MAX_ATTEMPTS = 10
+MAX_ATTEMPTS = 6
 
 
 class Tests():
@@ -33,7 +33,7 @@ class Tests():
             if answer != False:
                 print(f'complete in {i + 1} turns!')
                 found = True
-                return i + 1
+                return True
 
             chosen = wc.choose_word()
     

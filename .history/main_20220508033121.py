@@ -15,8 +15,10 @@ def main():
     csv_columns = ['Attempts', 'Words']
 
     with open('results.csv', 'w') as f:
+        writer = csv.DictWriter(f, fieldnames=csv_columns)
+        writer.writeheader()
         for data in results:
-            
+            writer.writerow(data)
 
     # c = collections.Counter(results)
     # print(c)

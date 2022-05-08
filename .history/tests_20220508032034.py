@@ -1,7 +1,7 @@
 from game import Game
 from words import WordsController
 
-MAX_ATTEMPTS = 10
+MAX_ATTEMPTS = 6
 
 
 class Tests():
@@ -38,5 +38,5 @@ class Tests():
             chosen = wc.choose_word()
     
         print(f'failure to find the word within {MAX_ATTEMPTS} steps')
-        return False
+        return 0
 
