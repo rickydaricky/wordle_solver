@@ -27,6 +27,7 @@ class Tests():
         chosen = 'salet'
 
         for i in range(MAX_ATTEMPTS):
+
             print(chosen)
 
             answer = wc.try_word(game_board, chosen)

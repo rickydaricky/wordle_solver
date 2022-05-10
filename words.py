@@ -30,9 +30,6 @@ class WordsController():
         # list of all the letters that aren't in the word
         self.known_wrong_options = set()
 
-        # self.options = {'a': [], 'b': [], 'c': [], 'd': (), 'e': (), 'f': (), 'g': (), 'h': (), 'i': (), 'j': (), 'k': (), 'l': (), 'm': (), 'n': (), 'o': (), 'p': (
-        # ), 'q': (), 'r': (), 's': (), 't': (), 'u': (), 'v': (), 'w': (), 'x': (), 'y': (), 'z': ()}   # dictionary representing information about each letter, each list representing a position the word could be in
-
     @staticmethod
     def valid_known_wrong(known_wrong_options, word):
         """
@@ -115,6 +112,7 @@ class WordsController():
         # pick a random word from the remaining options
         # chosen_word = random.choice(self.word_options)
         chosen_word = self.word_options[0]
+        self.word_options.remove(chosen_word)
 
         return chosen_word
 
