@@ -49,7 +49,7 @@ class Website():
         self.driver.implicitly_wait(15)
 
         returned_boxes = right_row.find_elements(By.TAG_NAME, "game-tile")
-        
+
         for i in range(len(attempted_word)):
             game = webdriver.ActionChains(self.driver)
             game.send_keys(attempted_word[i]).perform()
@@ -73,7 +73,7 @@ class Website():
         self.driver.implicitly_wait(15)
 
         # check if the word is invalid
-        try: 
+        try:
             assert(returned_boxes[0].get_attribute("evaluation") != None)
         except:
             time.sleep(2)

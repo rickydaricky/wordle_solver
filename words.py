@@ -105,7 +105,6 @@ class WordsController():
         self.word_options[:] = [x for x in self.word_options if self.valid_unknown_locations(
             self.unknown_location_options, x)]
 
-        
         # sort the list to put capital words at the end
         self.word_options.sort(reverse=True)
 

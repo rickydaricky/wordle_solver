@@ -57,8 +57,6 @@ class Tests():
 
         for i in range(MAX_ATTEMPTS):
 
-            # print(chosen)
-
             valid = False
             while not valid:
                 try:
@@ -69,7 +67,8 @@ class Tests():
 
             if answer != False:
                 print(f'Complete in {i + 1} turns: the answer is {chosen}!')
-                subprocess.run([f"say the answer to today's Wordle is {chosen}"])
+                subprocess.call(
+                    ["say", f"the answer to today's Wordle is {chosen}"])
                 return i + 1
 
             chosen = wc.choose_word()
