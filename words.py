@@ -93,17 +93,29 @@ class WordsController():
         Returns: string word
         """
 
+        # get rid of letters in known_wrong_options that are already present in the word
+        temp = []
+        correct_word_letters = list(self.known_location_options.values())
+        # print(correct_word_letters)
+        for letter in self.known_wrong_options:
+            if letter not in correct_word_letters:
+                temp.append(letter)
+        
+        self.known_word_options = temp
+
         # filter for letters that don't exist
         self.word_options[:] = [x for x in self.word_options if self.valid_known_wrong(
             self.known_wrong_options, x)]
-
+            
         # filter for known letters with known locations
         self.word_options[:] = [x for x in self.word_options if self.valid_known_locations(
             self.known_location_options, x)]
 
+
         # filter for known letters with unknown locations
         self.word_options[:] = [x for x in self.word_options if self.valid_unknown_locations(
             self.unknown_location_options, x)]
+        
 
         # sort the list to put capital words at the end
         self.word_options.sort(reverse=True)

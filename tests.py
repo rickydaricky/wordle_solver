@@ -57,6 +57,8 @@ class Tests():
 
         for i in range(MAX_ATTEMPTS):
 
+            print(chosen)
+
             valid = False
             while not valid:
                 try:

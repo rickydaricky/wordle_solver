@@ -27,7 +27,7 @@ def retrieve_to_text(word_length, destination):
 
 
 def main():
-    # Tests.test_word('hello')
+    # Tests.test_word('slung')
 
     Tests.test_web()
 
