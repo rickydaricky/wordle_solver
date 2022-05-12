@@ -94,19 +94,23 @@ class WordsController():
         """
 
         # get rid of letters in known_wrong_options that are already present in the word
-        temp = []
-        correct_word_letters = list(self.known_location_options.values())
-        # print(correct_word_letters)
-        for letter in self.known_wrong_options:
-            if letter not in correct_word_letters:
-                temp.append(letter)
+        # temp = set()
+        # print(self.known_wrong_options)
+        # correct_word_letters = list(self.known_location_options.values())
+        # for letter in self.known_wrong_options:
+        #     if letter not in correct_word_letters:
+        #         temp.union(letter)
         
-        self.known_word_options = temp
+        # self.known_wrong_options = temp
+
+        # print(self.known_wrong_options)
+        # print(correct_word_letters)
+        # print(self.word_options)
 
         # filter for letters that don't exist
         self.word_options[:] = [x for x in self.word_options if self.valid_known_wrong(
             self.known_wrong_options, x)]
-            
+
         # filter for known letters with known locations
         self.word_options[:] = [x for x in self.word_options if self.valid_known_locations(
             self.known_location_options, x)]
@@ -137,13 +141,17 @@ class WordsController():
         now_known: list of tuples, with each tuple being (letter, index_in_word)
         """
 
-        # update known_wrong_options
-        self.known_wrong_options = self.known_wrong_options.union(new_wrong)
+
+        letters_in_word = set()
 
         # update known_location_options
-
         for letter, index_in_word in now_known:
             self.known_location_options[index_in_word] = letter
+            letters_in_word.add(letter)
+
+        # update known_wrong_options
+        new_wrong = set([x for x in new_wrong if x not in letters_in_word])
+        self.known_wrong_options = self.known_wrong_options.union(new_wrong)
 
         # update unknown_location_options
         for letter, _ in now_known:
