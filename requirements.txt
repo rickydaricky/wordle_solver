@@ -1,0 +1,10 @@
+english-words == 1.1.0
+mrlpy == 1.0.0
+openbaton-cli == 6.0.0
+org-geppetto-recording == 0.1.0
+py-webdriver-manager == 0.0.3
+py4grid == 1.0.5
+python-plugin-sdk == 6.0.1
+selenium == 4.2.0
+setuptools == 41.2.0
+webdriver-manager == 3.7.0
