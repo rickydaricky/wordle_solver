@@ -93,20 +93,6 @@ class WordsController():
         Returns: string word
         """
 
-        # get rid of letters in known_wrong_options that are already present in the word
-        # temp = set()
-        # print(self.known_wrong_options)
-        # correct_word_letters = list(self.known_location_options.values())
-        # for letter in self.known_wrong_options:
-        #     if letter not in correct_word_letters:
-        #         temp.union(letter)
-        
-        # self.known_wrong_options = temp
-
-        # print(self.known_wrong_options)
-        # print(correct_word_letters)
-        # print(self.word_options)
-
         # filter for letters that don't exist
         self.word_options[:] = [x for x in self.word_options if self.valid_known_wrong(
             self.known_wrong_options, x)]
