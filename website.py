@@ -18,6 +18,7 @@ class Website():
 
         chrome_options = Options()
         chrome_options.add_experimental_option("detach", True)
+        chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
         # set up driver and site
         self.driver = webdriver.Chrome(

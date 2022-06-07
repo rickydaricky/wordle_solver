@@ -2,6 +2,7 @@ from game import Game
 from words import WordsController
 from website import Website
 import subprocess
+import os
 
 MAX_ATTEMPTS = 10
 
@@ -69,8 +70,9 @@ class Tests():
 
             if answer != False:
                 print(f'Complete in {i + 1} turns: the answer is {chosen}!')
-                subprocess.call(
-                    ["say", f"the answer to today's Wordle is {chosen}"])
+                if os.name == 'posix':
+                    subprocess.call(
+                        ["say", f"the answer to today's Wordle is {chosen}"])
                 return i + 1
 
             chosen = wc.choose_word()
